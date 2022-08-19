@@ -26,12 +26,12 @@ export class AppComponent {
 
   save(i: number): void {
     localStorage.setItem("index", String(i));
-    this.product = this.products[i];
+    this.product = Object.assign({},this.products[i]);
   }
 
   edit(): void {
     let index = localStorage.getItem("index");
-    this.product = this.products[Number(index)];
+    this.products[Number(index)] = this.product;
   }
 
   reset(): void {
